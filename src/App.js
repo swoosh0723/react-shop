@@ -4,20 +4,39 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="mainBanner">
+        Main Banner
+      </div>
+
+      <div className="container">
+        <div className="goods">
+          <div className="goodsThumbnail">
+            <img
+              src="https://image.msscdn.net/images/goods_img/20200918/1611805/1611805_1_500.jpg"
+              alt=""
+            >
+            </img>
+          </div>
+          <div className="goodsInformation">
+
+            <span className="goodsBrand">
+              무신사 스탠다드
+            </span>
+
+            <strong className="goodsName">
+              무신사스탠다드 코트
+            </strong>
+
+            <em className="goodsPrice">
+              229,500원
+            </em>
+
+            <em className="goodsRate">
+              25%
+            </em>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
