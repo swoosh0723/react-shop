@@ -14,10 +14,14 @@ function App() {
 
       <div className="container">
         {
-          goods.map((item) => {
+          goods.map((item, i) => {
             return (
               <Goods
                 goods={item}
+              // 또는
+              // goods={goods[i]}
+              // goods={goods[i] i={i}}
+              // <img src={'com/image'+ (pros.i + 1) +'jpg'}/>
               />
             )
           })
@@ -25,14 +29,6 @@ function App() {
       </div>
     </div>
   );
-}
-
-function Item(props) {
-  return (
-    <div className="item">
-      {props.goodsBrand}
-    </div>
-  )
 }
 
 export default App;
