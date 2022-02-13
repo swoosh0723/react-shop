@@ -1,6 +1,10 @@
+import React from 'react'
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 
 function GoodsDetail() {
+  const history = useHistory();
+
   return (
     <div className="goodsDetail">
       <div className="goodsDetail__thumbnail">
@@ -32,8 +36,12 @@ function GoodsDetail() {
         <button
           type="button"
           className="goodsDetail__button__cart"
+          onClick={() => {
+            // history.goBack()
+            history.push('./')
+          }}
         >
-          장바구니
+          뒤로가기
         </button>
 
         <button
