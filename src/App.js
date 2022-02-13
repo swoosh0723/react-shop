@@ -1,12 +1,18 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import shoesData from './dataShoes'
 
 function App() {
+  const [shoes, shoesChange] = useState(shoesData);
+
   return (
     <div className="App">
       <div className="mainBanner">
         Main Banner
       </div>
+      {
+        console.log({ shoes })
+      }
 
       <div className="container">
         <div className="goods">
@@ -24,7 +30,8 @@ function App() {
             </span>
 
             <strong className="goodsName">
-              무신사스탠다드 코트
+              {shoes[0].title}
+
             </strong>
 
             <em className="goodsPrice">
