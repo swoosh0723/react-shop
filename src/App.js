@@ -1,32 +1,67 @@
-import { useState, Component } from 'react';
+import { useState } from 'react';
 import './App.css';
 import goodsData from './dataGoods'
 import Goods from './components/goods'
+import GoodsDetail from './components/goodsDetail'
+
+import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [goods, goodsChange] = useState(goodsData);
 
   return (
     <div className="App">
-      <div className="mainBanner">
-        Main Banner
-      </div>
+      <header>
+        <div className="header__logo">
+          React-Shop
+        </div>
+        <div className="headner__gnb">
+          <Link to="/">
+            Home
+          </Link>
+          <Link to="/detail">
+            Detail
+          </Link>
+        </div>
+      </header>
 
-      <div className="container">
-        {
-          goods.map((item, i) => {
-            return (
-              <Goods
-                goods={item}
-              // 또는
-              // goods={goods[i]}
-              // goods={goods[i] i={i}}
-              // <img src={'com/image'+ (pros.i + 1) +'jpg'}/>
-              />
-            )
-          })
-        }
-      </div>
+      {/* 
+        Switch 
+        여러개 Route가 매칭 되어도 맨 위의 Route 하나만 보여줍니다
+      */}
+      <Switch>
+        {/* 
+          exact 경로가 정확히 일치할때
+        */}
+        <Route exact path="/">
+          <div className="mainBanner">
+            Main Banner
+          </div>
+
+          <div className="container">
+            {
+              goods.map((item, i) => {
+                return (
+                  <Goods
+                    goods={item}
+                  />
+                )
+              })
+            }
+          </div>
+        </Route>
+
+        <Route path="/detail">
+          <GoodsDetail />
+        </Route>
+
+
+        <Route path="/:id">
+          <div>
+            아무거나 적었을때 이거 보여주세요
+          </div>
+        </Route>
+      </Switch>
     </div>
   );
 }

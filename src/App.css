@@ -2,6 +2,37 @@
   width: 100%;
 }
 
+header {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.headner__gnb {
+  display: flex;
+  height: 100%;
+  margin-left: auto;
+}
+
+.headner__gnb a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 8px;
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+
 .mainBanner {
   display: flex;
   align-items: center;
@@ -22,12 +53,19 @@
 }
 
 .goodsThumbnail {
+  overflow: hidden;
+  position: relative;
   width: 100%;
+  padding-top: 100%;
   background-color: #ccc;
 }
 
 .goodsThumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .goodsInformation {
@@ -53,14 +91,111 @@
 
 .goodsPrice {
   margin-top: 4px;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .goodsRate {
   margin: 4px 0 0 auto;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
   font-size: 16px;
   font-weight: 700;
   font-style: normal;
   color: red;
+}
+
+.goodsDetail {
+  width: 100%;
+}
+
+.goodsDetail__thumbnail {
+  width: 100%;
+}
+
+.goodsDetail__thumbnail img {
+  width: 100%;
+}
+
+.goodsDetail__information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  background-color: #eee;
+}
+
+.goodsDetail__name {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.goodsDetail__brand {
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+.goodsDetail__price {
+  margin-top: 4px;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.goodsDetail__rate {
+  font-weight: 700;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-style: normal;
+  color: Red;
+}
+
+.goodsDetail__button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.goodsDetail__button button {
+  flex-basis: 49%;
+  height: 50px;
+  padding: 0;
+}
+
+.goodsDetail__button__cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #0078ff;
+  background-color: white;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-size: 16px;
+  color: #0078ff;
+}
+
+.goodsDetail__button__order {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #0078ff;
+  background-color: #0078ff;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-size: 16px;
+  color: white;
 }
