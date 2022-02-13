@@ -16,20 +16,12 @@ function App() {
           React-Shop
         </div>
         <div className="headner__gnb">
-          <a
-            title="Home"
-          >
-            <Link to="/">
-              Home
-            </Link>
-          </a>
-          <a
-            title="Detail"
-          >
-            <Link to="/detail">
-              Detail
-            </Link>
-          </a>
+          <Link to="/">
+            Home
+          </Link>
+          <Link to="/detail">
+            Detail
+          </Link>
         </div>
       </header>
 
