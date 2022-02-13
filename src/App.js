@@ -17,6 +17,7 @@ function App() {
         </div>
         <div className="headner__gnb">
           <a
+            href="#none"
             title="Home"
           >
             <Link to="/">
@@ -24,6 +25,7 @@ function App() {
             </Link>
           </a>
           <a
+            href="#none"
             title="Detail"
           >
             <Link to="/detail">
@@ -33,34 +35,43 @@ function App() {
         </div>
       </header>
 
-
-
       {/* 
-        exact 경로가 정확히 일치할때
+        Switch 
+        여러개 Route가 매칭 되어도 맨 위의 Route 하나만 보여줍니다
       */}
-      <Route exact path="/">
-        <div className="mainBanner">
-          Main Banner
-        </div>
+      <Switch>
+        {/* 
+          exact 경로가 정확히 일치할때
+        */}
+        <Route exact path="/">
+          <div className="mainBanner">
+            Main Banner
+          </div>
 
-        <div className="container">
-          {
-            goods.map((item, i) => {
-              return (
-                <Goods
-                  goods={item}
-                />
-              )
-            })
-          }
-        </div>
-      </Route>
+          <div className="container">
+            {
+              goods.map((item, i) => {
+                return (
+                  <Goods
+                    goods={item}
+                  />
+                )
+              })
+            }
+          </div>
+        </Route>
 
-      <Route path="/detail">
-        <GoodsDetail />
-      </Route>
+        <Route path="/detail">
+          <GoodsDetail />
+        </Route>
 
 
+        <Route path="/:id">
+          <div>
+            아무거나 적었을때 이거 보여주세요
+          </div>
+        </Route>
+      </Switch>
     </div>
   );
 }
