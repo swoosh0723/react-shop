@@ -3,7 +3,7 @@ function Goods(props) {
   return (
     <div
       className="goods"
-      key={props.goods.id}
+      key={props.i}
     >
       <div className="goodsThumbnail">
         <img
