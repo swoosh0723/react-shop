@@ -3,31 +3,31 @@ function Goods(props) {
   return (
     <div
       className="goods"
-      key={props.goodsId}
+      key={props.goods.id}
     >
       <div className="goodsThumbnail">
         <img
-          src={props.goodsImage}
+          src={props.goods.image}
           alt=""
         >
         </img>
       </div>
       <div className="goodsInformation">
         <span className="goodsBrand">
-          {props.goodsBrand}
+          {props.goods.brand}
         </span>
 
         <strong className="goodsName">
-          {props.goodsName}
+          {props.goods.name}
 
         </strong>
 
         <em className="goodsPrice">
-          {props.goodsPrice}
+          {props.goods.price}
         </em>
 
         <em className="goodsRate">
-          {props.goodsRate}
+          {props.goods.rate}
         </em>
       </div>
     </div>
