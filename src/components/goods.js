@@ -1,30 +1,33 @@
 
 function Goods(props) {
   return (
-    <div className="goods">
+    <div
+      className="goods"
+      key={props.goodsId}
+    >
       <div className="goodsThumbnail">
         <img
-          src="https://image.msscdn.net/images/goods_img/20200918/1611805/1611805_1_500.jpg"
+          src={props.goodsImage}
           alt=""
         >
         </img>
       </div>
       <div className="goodsInformation">
         <span className="goodsBrand">
-          {props.shoesBrand}
+          {props.goodsBrand}
         </span>
 
         <strong className="goodsName">
-          {props.shoesName}
+          {props.goodsName}
 
         </strong>
 
         <em className="goodsPrice">
-          {props.shoesPrice}
+          {props.goodsPrice}
         </em>
 
         <em className="goodsRate">
-          {props.shoesRate}
+          {props.goodsRate}
         </em>
       </div>
     </div>

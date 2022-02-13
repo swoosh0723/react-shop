@@ -1,10 +1,12 @@
 import { useState, Component } from 'react';
 import './App.css';
 import shoesData from './dataShoes'
+import goodsData from './dataGoods'
 import Goods from './components/goods'
 
 function App() {
   const [shoes, shoesChange] = useState(shoesData);
+  const [goods, goodsChange] = useState(goodsData);
 
   return (
     <div className="App">
@@ -13,12 +15,20 @@ function App() {
       </div>
 
       <div className="container">
-        <Goods
-          shoesBrand={shoes[0].brand}
-          shoesName={shoes[0].name}
-          shoesPrice={shoes[0].price}
-          shoesRate={shoes[0].rate}
-        />
+        {
+          goods.map((item) => {
+            return (
+              <Goods
+                goodsId={item.id}
+                goodsImage={item.image}
+                goodsBrand={item.brand}
+                goodsName={item.name}
+                goodsPrice={item.price}
+                goodsRate={item.rate}
+              />
+            )
+          })
+        }
       </div>
     </div>
   );
