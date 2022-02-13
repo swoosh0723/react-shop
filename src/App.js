@@ -17,7 +17,6 @@ function App() {
         </div>
         <div className="headner__gnb">
           <a
-            href="#none"
             title="Home"
           >
             <Link to="/">
@@ -25,7 +24,6 @@ function App() {
             </Link>
           </a>
           <a
-            href="#none"
             title="Detail"
           >
             <Link to="/detail">
