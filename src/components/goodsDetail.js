@@ -1,34 +1,42 @@
 import React from 'react'
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
-function GoodsDetail() {
+function GoodsDetail(props) {
+  const { id } = useParams();
+
+  const goodsId = props.goods.find((item) => {
+    return item.id == id
+  });
+
+  console.log({ id })
+
   const history = useHistory();
 
   return (
     <div className="goodsDetail">
       <div className="goodsDetail__thumbnail">
         <img
-          src="https://image.msscdn.net/images/goods_img/20210201/1771542/1771542_1_500.jpg"
+          src={goodsId.image}
           alt=""
         />
       </div>
 
       <div className="goodsDetail__information">
         <h4 className="goodsDetail__name">
-          상품명
+          {goodsId.name}
         </h4>
 
         <span className="goodsDetail__brand">
-          상품 브랜드
+          {goodsId.brand}
         </span>
 
         <em className="goodsDetail__price">
-          100000원
+          {goodsId.price}
         </em>
 
         <em className="goodsDetail__rate">
-          30%
+          {goodsId.rate}
         </em>
       </div>
 

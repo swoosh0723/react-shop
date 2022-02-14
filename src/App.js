@@ -7,6 +7,10 @@ import GoodsDetail from './components/goodsDetail'
 import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
+
+  // useState components에서 사용가능
+  // App.js 에서 props로 내려주는것이 국룰
+  // 왜냐 데이터는 항상 위에서 아래로 흘러야한다
   const [goods, goodsChange] = useState(goodsData);
 
   return (
@@ -43,6 +47,7 @@ function App() {
               goods.map((item, i) => {
                 return (
                   <Goods
+                    key={i}
                     goods={item}
                   />
                 )
@@ -51,8 +56,10 @@ function App() {
           </div>
         </Route>
 
-        <Route path="/detail">
-          <GoodsDetail />
+        <Route path="/detail/:id">
+          <GoodsDetail
+            goods={goods}
+          />
         </Route>
 
 

@@ -15,6 +15,9 @@ header {
   display: flex;
   align-items: center;
   height: 100%;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-weight: 400;
 }
 
 .headner__gnb {
@@ -93,7 +96,7 @@ header {
   margin-top: 4px;
   font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
     "Noto Sans KR", helvetica, Gulim, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -102,7 +105,7 @@ header {
   font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
     "Noto Sans KR", helvetica, Gulim, sans-serif;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   color: red;
 }
@@ -112,11 +115,18 @@ header {
 }
 
 .goodsDetail__thumbnail {
+  overflow: hidden;
+  position: relative;
   width: 100%;
+  padding-top: 100%;
 }
 
 .goodsDetail__thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   width: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .goodsDetail__information {
@@ -145,14 +155,14 @@ header {
   margin-top: 4px;
   font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
     "Noto Sans KR", helvetica, Gulim, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
 }
 
 .goodsDetail__rate {
-  font-weight: 700;
   font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
     "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-weight: 400;
   font-style: normal;
   color: Red;
 }
