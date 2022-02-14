@@ -12,12 +12,13 @@ const Box = styled.div`
 const Title = styled.h4`
   display: flex;
   align-items: center;
-  ustify-content: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   margin: 0;
   font-size: 13px;
   font-weight: 400;
+  color: ${props => props.titleColor}
 `;
 
 function GoodsDetail(props) {
@@ -32,7 +33,11 @@ function GoodsDetail(props) {
   return (
     <div className="goodsDetail">
       <Box>
-        <Title>상세페이지</Title>
+        <Title
+          titleColor='blue'
+        >
+          상세페이지
+        </Title>
       </Box>
 
       <div className="goodsDetail__thumbnail">
