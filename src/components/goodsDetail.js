@@ -41,15 +41,16 @@ function GoodsDetail(props) {
     // 위에서 아래로 순서대로 실행
 
 
-    const timer = setTimeout(() => {
-      console.log(321321321);
-
+    setTimeout(() => {
+      alertChange(false)
     }, 2000)
 
     return function test() {
       // 사라질때 실행할 코드
     }
   });
+
+  const [alert, alertChange] = useState(true);
 
   const { id } = useParams();
 
@@ -68,10 +69,14 @@ function GoodsDetail(props) {
           Detail
         </Title>
       </Box>
-
-      <div className="goodsDetail__alert">
-        재고가 얼마 남지 않았습니다
-      </div>
+      {
+        alert == true
+          ?
+          <div className="goodsDetail__alert">
+            재고가 얼마 남지 않았습니다
+          </div>
+          : null
+      }
 
       <div className="goodsDetail__thumbnail">
         <img
