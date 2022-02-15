@@ -43,16 +43,25 @@ function App() {
           </div>
 
           <div className="container">
-            {
-              goods.map((item, i) => {
-                return (
-                  <Goods
-                    key={i}
-                    goods={item}
-                  />
-                )
-              })
-            }
+            <div className="goodsList">
+              {
+                goods.map((item, i) => {
+                  return (
+                    <Goods
+                      key={i}
+                      goods={item}
+                    />
+                  )
+                })
+              }
+            </div>
+
+            <button
+              type="button"
+              className="goodsButtonMore"
+            >
+              더보기
+            </button>
           </div>
         </Route>
 

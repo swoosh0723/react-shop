@@ -53,7 +53,14 @@ header {
 
 .container {
   width: 100%;
+  padding-bottom: 30px;
   margin-top: 30px;
+}
+
+.goodsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 8px 4px;
 }
 
 .goods {
@@ -65,7 +72,7 @@ header {
   position: relative;
   width: 100%;
   padding-top: 100%;
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 .goodsThumbnail img {
@@ -113,6 +120,22 @@ header {
   font-weight: 400;
   font-style: normal;
   color: red;
+}
+
+.goodsButtonMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  padding: 0;
+  margin: 40px auto 0;
+  border-radius: 4px;
+  background-color: black;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-size: 14px;
+  color: white;
 }
 
 .goodsDetail {

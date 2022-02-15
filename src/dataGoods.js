@@ -27,6 +27,16 @@ const goodsData = [
     content: "Born in the States",
     price: 130000,
     rate: "15%"
+  },
+
+  {
+    id: 3,
+    image: "https://image.msscdn.net/images/goods_img/20210823/2081552/2081552_2_320.jpg",
+    brand: "노스페이스",
+    name: "노스페이스 눕시",
+    content: "Born in the States",
+    price: 330000,
+    rate: "5%"
   }
 ]
 
