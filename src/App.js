@@ -40,7 +40,9 @@ function App() {
         */}
         <Route exact path="/">
           <div className="mainBanner">
-            Main Banner
+            <img
+              src="https://image.msscdn.net/display/images/2021/11/15/adedce4cfd46476ca932a93150fada32.jpg?1644910200000"
+            />
           </div>
 
           <div className="container">
