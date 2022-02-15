@@ -119,6 +119,18 @@ header {
   width: 100%;
 }
 
+.goodsDetail__alert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 40px;
+  margin: 5px auto;
+  border-radius: 6px;
+  background-color: pink;
+  font-size: 11px;
+}
+
 .goodsDetail__thumbnail {
   overflow: hidden;
   position: relative;
