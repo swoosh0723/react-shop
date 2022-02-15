@@ -1,6 +1,25 @@
 import React from 'react'
 import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Box = styled.div`
+  width: 100%;
+  height: 50px;
+  background-color: #eee;
+`;
+
+const Title = styled.h4`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: ${props => props.titleColor}
+`;
 
 function GoodsDetail(props) {
   const { id } = useParams();
@@ -9,12 +28,18 @@ function GoodsDetail(props) {
     return item.id == id
   });
 
-  console.log({ id })
-
   const history = useHistory();
 
   return (
     <div className="goodsDetail">
+      <Box>
+        <Title
+          titleColor='blue'
+        >
+          상세페이지
+        </Title>
+      </Box>
+
       <div className="goodsDetail__thumbnail">
         <img
           src={goodsId.image}
