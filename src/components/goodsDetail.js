@@ -70,11 +70,12 @@ function GoodsDetail(props) {
         </Title>
       </Box>
       {
-        alert == true
-          ?
-          <div className="goodsDetail__alert">
-            재고가 얼마 남지 않았습니다
-          </div>
+        alert === true
+          ? (
+            <div className="goodsDetail__alert">
+              재고가 얼마 남지 않았습니다
+            </div>
+          )
           : null
       }
 
