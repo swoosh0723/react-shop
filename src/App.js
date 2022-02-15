@@ -5,6 +5,7 @@ import Goods from './components/goods'
 import GoodsDetail from './components/goodsDetail'
 
 import { Link, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
 function App() {
 
