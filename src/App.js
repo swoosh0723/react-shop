@@ -74,6 +74,12 @@ function App() {
                   .then((result) => {
                     // data요청완료!
                     console.log(result.data)
+
+                    const addGoods = [
+                      ...goods,
+                      ...result.data
+                    ];
+                    goodsChange(addGoods)
                   })
                   .catch(() => {
                     console.log('실패임')
