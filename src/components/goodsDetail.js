@@ -33,24 +33,31 @@ const Title = styled.h4`
 // }
 
 function GoodsDetail(props) {
+  const [alert, alertChange] = useState(true);
+  const [inputData, inputDataChange] = useState();
+
   useEffect(() => {
     // 컴포넌트가 mount 되었을때
     // 컴포넌트가 update 될 때
     // 특정 코드를 실행할 수 있음
     // useEffect는 여러개 사용가능
     // 위에서 아래로 순서대로 실행
+    // update될때 마다 실행됨
+    // 아래 대괄호를 사용하고 useState를 입력하면 해당 useState의 값이 변경 될때만 실행되게 해주세요
+    // [] 빈칸이면? 빈칸이 업데이트 되면 실행 -> 빈칸은 없다~
+    // 그래서 딱 한번만 실행 하고 끝
+    // useEffect에서 return은 component가 사라질때 실행되는
 
-
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       alertChange(false)
+
+      console.log('!!')
     }, 2000)
 
-    return function test() {
-      // 사라질때 실행할 코드
+    return () => {
+      clearTimeout(timer);
     }
-  });
-
-  const [alert, alertChange] = useState(true);
+  }, [alert]);
 
   const { id } = useParams();
 
@@ -69,6 +76,18 @@ function GoodsDetail(props) {
           Detail
         </Title>
       </Box>
+
+      {inputData}
+      {/* 
+        입력할때 업데이트됨 
+        그래서 위 useState가 계속 실행됨
+      */}
+      <input
+        onChange={(e) => {
+          inputDataChange(e.target.value)
+        }}
+      />
+
       {
         alert === true
           ? (
