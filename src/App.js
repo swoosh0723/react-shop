@@ -20,10 +20,10 @@ function App() {
           React-Shop
         </div>
         <div className="headner__gnb">
-          <Link to="/">
+          <Link as={Link} to="/">
             Home
           </Link>
-          <Link to="/detail">
+          <Link as={Link} to="/detail">
             Detail
           </Link>
         </div>

@@ -1,7 +1,8 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
+
+import { Link, Route, Switch } from 'react-router-dom';
 
 const Box = styled.div`
   width: 100%;
@@ -21,7 +22,36 @@ const Title = styled.h4`
   color: ${props => props.titleColor}
 `;
 
+// class GoodsDetial2 extends React.Component {
+//   componentDidMount() {
+//     // Ajax 같은 것 가져오기
+//   }
+
+//   componentWillUnmount() {
+
+//   }
+// }
+
 function GoodsDetail(props) {
+  useEffect(() => {
+    // 컴포넌트가 mount 되었을때
+    // 컴포넌트가 update 될 때
+    // 특정 코드를 실행할 수 있음
+    // useEffect는 여러개 사용가능
+    // 위에서 아래로 순서대로 실행
+
+
+    setTimeout(() => {
+      alertChange(false)
+    }, 2000)
+
+    return function test() {
+      // 사라질때 실행할 코드
+    }
+  });
+
+  const [alert, alertChange] = useState(true);
+
   const { id } = useParams();
 
   const goodsId = props.goods.find((item) => {
@@ -36,9 +66,18 @@ function GoodsDetail(props) {
         <Title
           titleColor='blue'
         >
-          상세페이지
+          Detail
         </Title>
       </Box>
+      {
+        alert === true
+          ? (
+            <div className="goodsDetail__alert">
+              재고가 얼마 남지 않았습니다
+            </div>
+          )
+          : null
+      }
 
       <div className="goodsDetail__thumbnail">
         <img
