@@ -62,6 +62,23 @@ function App() {
             <button
               type="button"
               className="goodsButtonMore"
+              onClick={() => {
+                // Ajax 호출 하는법
+                // 성공하면 then()
+                // 실패하면 catch()
+
+                // fetch도 사용하나 호환성이 안좋음
+                // axios는 이쁘게 Object로 바꿔줌
+                // 그래서 axios사용
+                axios.get('https://codingapple1.github.io/shop/data2.json')
+                  .then((result) => {
+                    // data요청완료!
+                    console.log(result.data)
+                  })
+                  .catch(() => {
+                    console.log('실패임')
+                  });
+              }}
             >
               더보기
             </button>
@@ -86,3 +103,14 @@ function App() {
 }
 
 export default App;
+
+// Ajax
+// 서버에 '새로고침 없이' 요청을 할 수 있게 도와줌
+
+// 요청은 여러 종류가 있는데
+// GET요청: 특정페이지/자료읽기
+// POST요청: 서버로 중요 정보 전달
+
+// jQuery 설치해서 $.ajax()
+// axios 설치해서 axios.get()
+// vallia javascript fetch()

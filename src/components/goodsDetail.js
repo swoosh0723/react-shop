@@ -147,15 +147,3 @@ function GoodsDetail(props) {
 }
 
 export default GoodsDetail
-
-
-// Ajax
-// 서버에 '새로고침 없이' 요청을 할 수 있게 도와줌
-
-// 요청은 여러 종류가 있는데
-// GET요청: 특정페이지/자료읽기
-// POST요청: 서버로 중요 정보 전달
-
-// jQuery 설치해서 $.ajax()
-// axios 설치해서 axios.get()
-// vallia javascript fetch()
