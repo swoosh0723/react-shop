@@ -1,7 +1,19 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
+
+import { Link, Route, Switch } from 'react-router-dom';
+
+
+// class GoodsDetial2 extends React.Component {
+//   componentDidMount() {
+//     // Ajax 같은 것 가져오기
+//   }
+
+//   componentWillUnmount() {
+
+//   }
+// }
 
 const Box = styled.div`
   width: 100%;
@@ -22,6 +34,14 @@ const Title = styled.h4`
 `;
 
 function GoodsDetail(props) {
+  useEffect(() => {
+    // 컴포넌트가 mount 되었을때
+    // 컴포넌트가 update 될 때
+    // 특정 코드를 실행할 수 있음
+
+    console.log(321321321);
+  });
+
   const { id } = useParams();
 
   const goodsId = props.goods.find((item) => {
