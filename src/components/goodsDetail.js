@@ -50,7 +50,7 @@ function GoodsDetail(props) {
     // useEffect에서 return은 component가 사라질때 실행되는
 
     // 첫로드 될때 ajax 요청 할때, 한번만! [] 괄호치기
-    axios.get().then().catch();
+    // axios.get().then().catch();
 
     const timer = setTimeout(() => {
       alertChange(false)
@@ -145,10 +145,11 @@ function GoodsDetail(props) {
           type="button"
           className="goodsDetail__button__order"
           onClick={() => {
-            const stockOrder = [...props.stock]
+            const stockOrder = [...props.stock];
 
-
-            stockOrder[0] = 9;
+            stockOrder[0] > 0
+              ? stockOrder[0] = stockOrder[0] - 1
+              : stockOrder[0] = 0
 
             props.stockChange(stockOrder)
           }}
