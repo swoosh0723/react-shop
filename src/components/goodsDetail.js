@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { Link, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
 const Box = styled.div`
   width: 100%;
@@ -47,6 +48,9 @@ function GoodsDetail(props) {
     // [] 빈칸이면? 빈칸이 업데이트 되면 실행 -> 빈칸은 없다~
     // 그래서 딱 한번만 실행 하고 끝
     // useEffect에서 return은 component가 사라질때 실행되는
+
+    // 첫로드 될때 ajax 요청 할때, 한번만! [] 괄호치기
+    axios.get().then().catch();
 
     const timer = setTimeout(() => {
       alertChange(false)
@@ -129,7 +133,7 @@ function GoodsDetail(props) {
           className="goodsDetail__button__cart"
           onClick={() => {
             // history.goBack()
-            history.push('./')
+            history.push('/')
           }}
         >
           뒤로가기

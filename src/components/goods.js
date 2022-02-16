@@ -30,7 +30,7 @@ function Goods(props) {
           </strong>
 
           <em className="goodsPrice">
-            {props.goods.price}
+            {props.goods.price}원
           </em>
 
           <em className="goodsRate">
