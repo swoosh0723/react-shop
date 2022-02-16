@@ -50,7 +50,7 @@ function GoodsDetail(props) {
     // useEffect에서 return은 component가 사라질때 실행되는
 
     // 첫로드 될때 ajax 요청 할때, 한번만! [] 괄호치기
-    axios.get().then();
+    axios.get().then().catch();
 
     const timer = setTimeout(() => {
       alertChange(false)
