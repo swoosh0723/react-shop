@@ -125,6 +125,8 @@ function GoodsDetail(props) {
         <em className="goodsDetail__rate">
           {goodsId.rate}
         </em>
+
+        <Stock stock={props.stock}></Stock>
       </div>
 
       <div className="goodsDetail__button">
@@ -142,6 +144,14 @@ function GoodsDetail(props) {
         <button
           type="button"
           className="goodsDetail__button__order"
+          onClick={() => {
+            const stockOrder = [...props.stock]
+
+
+            stockOrder[0] = 9;
+
+            props.stockChange(stockOrder)
+          }}
         >
           주문하기
         </button>
@@ -151,3 +161,11 @@ function GoodsDetail(props) {
 }
 
 export default GoodsDetail
+
+function Stock(props) {
+  return (
+    <p>
+      재고: {props.stock[0]}
+    </p>
+  )
+}
