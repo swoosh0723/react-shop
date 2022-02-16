@@ -6,7 +6,7 @@ import GoodsDetail from './components/goodsDetail'
 
 import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-import goodsData2 from './data/dataGoods2.json'
+
 
 function App() {
 
@@ -15,6 +15,7 @@ function App() {
   // 왜냐 데이터는 항상 위에서 아래로 흘러야한다
   const [goods, goodsChange] = useState(goodsData);
   const [loading, loadingChange] = useState(true);
+  const [stock, stockChange] = useState([10, 11, 12])
 
   return (
     <div className="App">
@@ -119,6 +120,8 @@ function App() {
         <Route path="/detail/:id">
           <GoodsDetail
             goods={goods}
+            stock={stock}
+            stockChange={stockChange}
           />
         </Route>
 
