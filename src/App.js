@@ -80,7 +80,7 @@ function App() {
 
 
                 // post로 보내는법 예제 코드
-                // axios.post('서버URL', { id: 'swoosh0723', pw: 1234 });
+                // axios.post('서버URL', { id: 'swoosh0723', pw: 1234 }).then();
 
                 // 로딩중이라는 UI 보이게
                 loadingChange(false);
