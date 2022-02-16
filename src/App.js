@@ -13,6 +13,7 @@ function App() {
   // App.js 에서 props로 내려주는것이 국룰
   // 왜냐 데이터는 항상 위에서 아래로 흘러야한다
   const [goods, goodsChange] = useState(goodsData);
+  const [loading, loadingChange] = useState(true);
 
   return (
     <div className="App">
@@ -59,6 +60,12 @@ function App() {
               }
             </div>
 
+            {
+              loading === true
+                ? console.log("로딩로딩")
+                : <Loading ></Loading>
+            }
+
             <button
               type="button"
               className="goodsButtonMore"
@@ -70,11 +77,21 @@ function App() {
                 // fetch도 사용하나 호환성이 안좋음
                 // axios는 이쁘게 Object로 바꿔줌
                 // 그래서 axios사용
+                // console.log(TestGoods.data)
+
+                // 로딩중이라는 UI 보이게
+                loadingChange(false);
+
                 axios.get('https://codingapple1.github.io/shop/data2.json')
                   .then((result) => {
+                    // 로딩중이라는 UI 안보이게
+                    loadingChange(true);
+
                     // data요청완료!
                     console.log(result.data)
 
+                    // ...은 deepcopy
+                    // array를 벗기고 복사 후 다시 [] array에 넣는것 [...goods]
                     const addGoods = [
                       ...goods,
                       ...result.data
@@ -82,6 +99,9 @@ function App() {
                     goodsChange(addGoods)
                   })
                   .catch(() => {
+                    // 로딩중이라는 UI 안보이게
+                    loadingChange(true);
+
                     console.log('실패임')
                   });
               }}
@@ -120,3 +140,12 @@ export default App;
 // jQuery 설치해서 $.ajax()
 // axios 설치해서 axios.get()
 // vallia javascript fetch()
+
+
+function Loading() {
+  return (
+    <div className="loading">
+      !!!로딩중입니다!!!
+    </div>
+  )
+}
