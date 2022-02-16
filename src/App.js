@@ -6,6 +6,7 @@ import GoodsDetail from './components/goodsDetail'
 
 import { Link, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+import goodsData2 from './data/dataGoods2.json'
 
 function App() {
 
@@ -59,6 +60,7 @@ function App() {
                 })
               }
             </div>
+
 
             {
               loading === true
