@@ -77,7 +77,10 @@ function App() {
                 // fetch도 사용하나 호환성이 안좋음
                 // axios는 이쁘게 Object로 바꿔줌
                 // 그래서 axios사용
-                // console.log(TestGoods.data)
+
+
+                // post로 보내는법 예제 코드
+                // axios.post('서버URL', { id: 'swoosh0723', pw: 1234 });
 
                 // 로딩중이라는 UI 보이게
                 loadingChange(false);
