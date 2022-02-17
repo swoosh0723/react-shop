@@ -64,7 +64,7 @@ function App() {
 
 
             {
-              loading === true
+              loading
                 ? console.log("로딩로딩")
                 : <Loading ></Loading>
             }
