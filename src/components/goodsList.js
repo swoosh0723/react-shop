@@ -4,7 +4,7 @@ import Goods2 from './goods2'
 
 const List = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: ${props => props.viewType};
   gap: 8px 12px;
   width: 100%;
   padding: 0 15px;
@@ -40,8 +40,12 @@ function GoodsList(props) {
 
   const [goodsCount, goodsCountChange] = useState(props.goods.length)
 
-  function Babo() {
-    console.log(3123)
+  const [viewType, viewTypeChange] = useState('1fr 1fr');
+
+  function viewTypeToggle() {
+    viewType === '1fr 1fr'
+      ? viewTypeChange('1fr 1fr 1fr')
+      : viewTypeChange('1fr 1fr')
   }
 
   return (
@@ -53,12 +57,14 @@ function GoodsList(props) {
 
         <ViewButton
           type="button"
-          onClick={Babo}
+          onClick={viewTypeToggle}
         >
-          보기방식 변경
+          보기방식 토글 버튼
         </ViewButton>
       </UtilBar>
-      <List>
+      <List
+        viewType={viewType}
+      >
         {
           props.goods.map((item, i) => {
             return (
