@@ -30,13 +30,33 @@ const goodsData = [
   },
 
   {
-    id: 3,
-    image: "https://image.msscdn.net/images/goods_img/20210823/2081552/2081552_2_320.jpg",
-    brand: "노스페이스",
-    name: "노스페이스 눕시",
-    content: "Born in the States",
-    price: 330000,
-    rate: "5%"
+    "id": 3,
+    "image": "https://image.msscdn.net/images/goods_img/20210823/2081552/2081552_2_320.jpg",
+    "brand": "노스페이스",
+    "name": "노스페이스 눕시",
+    "content": "Born in the States",
+    "price": 330000,
+    "rate": "5%"
+  },
+
+  {
+    "id": 4,
+    "image": "https://image.msscdn.net/images/goods_img/20210806/2051620/2051620_1_320.jpg",
+    "brand": "리",
+    "name": "빅 맨투맨",
+    "content": "Born in the States",
+    "price": 230000,
+    "rate": "25%"
+  },
+
+  {
+    "id": 5,
+    "image": "https://image.msscdn.net/images/goods_img/20220114/2309116/2309116_1_320.jpg",
+    "brand": "나이키",
+    "name": "와플트레이너",
+    "content": "Born in the States",
+    "price": 94000,
+    "rate": "5%"
   }
 ]
 

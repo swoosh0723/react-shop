@@ -42,7 +42,7 @@ const MoreButton = styled.button`
   width: 120px;
   height: 40px;
   padding: 0;
-  margin: 40px auto 0;
+  margin: 40px auto;
   border: none;
   border-radius: 4px;
   background-color: #0078ff;
@@ -62,7 +62,9 @@ function GoodsList(props) {
   function viewTypeToggle() {
     viewType === '1fr 1fr'
       ? viewTypeChange('1fr 1fr 1fr')
-      : viewTypeChange('1fr 1fr')
+      : viewType === '1fr 1fr 1fr'
+        ? viewTypeChange('1fr')
+        : viewTypeChange('1fr 1fr')
   }
 
   return (

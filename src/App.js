@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './App.css';
 
-import dataGoods from './data/dataGoods2.json'
+import dataGoods from './dataGoods'
 
 import Header from './components/header'
 import MainBanner from './components/mainBanner'
