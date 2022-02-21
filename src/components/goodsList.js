@@ -57,14 +57,28 @@ function GoodsList(props) {
 
   const [goodsCount, goodsCountChange] = useState(props.goods.length)
 
-  const [viewType, viewTypeChange] = useState('1fr 1fr');
+  const columnSize = '1fr'
+  const [colmunsCount, colmunsCountChange] = useState(2)
+
+
+  const columnTemplate = (columnSize + ' ').repeat(colmunsCount)
+  const [viewType, viewTypeChange] = useState(columnTemplate);
 
   function viewTypeToggle() {
-    viewType === '1fr 1fr'
-      ? viewTypeChange('1fr 1fr 1fr')
-      : viewType === '1fr 1fr 1fr'
-        ? viewTypeChange('1fr')
-        : viewTypeChange('1fr 1fr')
+    // viewType === '1fr 1fr'
+    //   ? viewTypeChange('1fr 1fr 1fr')
+    //   : viewType === '1fr 1fr 1fr'
+    //     ? viewTypeChange('1fr')
+    //     : viewTypeChange('1fr 1fr')
+
+
+    colmunsCount === 2
+      ? colmunsCountChange(3)
+      : colmunsCount === 3
+        ? colmunsCountChange(1)
+        : colmunsCountChange(2)
+
+    viewTypeChange(columnTemplate)
   }
 
   return (
