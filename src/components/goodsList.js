@@ -35,6 +35,23 @@ const ViewButton = styled.button`
   color: white;
 `
 
+const MoreButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  padding: 0;
+  margin: 40px auto 0;
+  border: none;
+  border-radius: 4px;
+  background-color: #0078ff;
+  font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
+    "Noto Sans KR", helvetica, Gulim, sans-serif;
+  font-size: 14px;
+  color: white;
+`
+
 
 function GoodsList(props) {
 
@@ -76,6 +93,13 @@ function GoodsList(props) {
           })
         }
       </List>
+
+      <MoreButton
+        type="button"
+        onClick={() => { console.log(321) }}
+      >
+        더보기
+      </MoreButton>
     </>
   )
 }
