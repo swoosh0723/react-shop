@@ -4,7 +4,8 @@ import Goods2 from './goods2'
 
 const List = styled.div`
   display: grid;
-  grid-template-columns: ${props => props.viewType};
+  grid-template-columns: ${props => props.column};
+  /* grid-template-columns: repeat(3, 1fr); */
   gap: 8px 12px;
   width: 100%;
   padding: 0 15px;
@@ -57,12 +58,16 @@ function GoodsList(props) {
 
   const [goodsCount, goodsCountChange] = useState(props.goods.length)
 
-  const columnSize = '1fr'
-  const [colmunCount, colmunCountChange] = useState(2)
+  // const columnSize = '1fr'
+  // const [columnCount, columnCountChange] = useState(2)
 
+  // const columnTemplate = (columnSize + ' ').repeat(columnCount)
+  // const [viewType, viewTypeChange] = useState(columnTemplate);
 
-  const columnTemplate = (columnSize + ' ').repeat(colmunCount)
-  const [viewType, viewTypeChange] = useState(columnTemplate);
+  const [repeatCount, repeatCountChange] = useState(2);
+  const column = 'repeat(' + repeatCount + ', 1fr)';
+
+  console.log(column)
 
   function viewTypeToggle() {
     // viewType === '1fr 1fr'
@@ -72,13 +77,19 @@ function GoodsList(props) {
     //     : viewTypeChange('1fr 1fr')
 
 
-    colmunCount === 2
-      ? colmunCountChange(3)
-      : colmunCount === 3
-        ? colmunCountChange(1)
-        : colmunCountChange(2)
+    // columnCount === 2
+    //   ? columnCountChange(3)
+    //   : columnCount === 3
+    //     ? columnCountChange(1)
+    //     : columnCountChange(2)
 
-    viewTypeChange(columnTemplate)
+    // viewTypeChange(columnTemplate)
+
+    if (repeatCount === 3) {
+      repeatCountChange(1)
+    } else {
+      repeatCountChange(repeatCount + 1);
+    }
   }
 
   return (
@@ -96,7 +107,7 @@ function GoodsList(props) {
         </ViewButton>
       </UtilBar>
       <List
-        viewType={viewType}
+        column={column}
       >
         {
           props.goods.map((item, i) => {
