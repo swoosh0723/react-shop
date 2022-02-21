@@ -31,8 +31,8 @@ function Header() {
   return (
     <Wrapper>
       <Logo>REACT-SHOP</Logo>
-      <Menu to="/">HOME</Menu>
-      <Menu to="/detail">Detail</Menu>
+      <Menu as={Link} to="/#">HOME</Menu>
+      <Menu as={Link} to="/detail">Detail</Menu>
     </Wrapper>
   )
 }

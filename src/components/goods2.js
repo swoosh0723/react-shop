@@ -1,21 +1,21 @@
-
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
+import styled from 'styled-components'
 
 const GoodsWrapper = styled(Link)`
-  background-color: gray;
   text-decoration: none;
   color: black;
 `
 
 const ThumbnailBox = styled.div`
   position:relative;
+  overflow: hidden;
   width: 100%;
   padding-top: 100%;
 `
 
 const Thumbnail = styled.img.attrs({
-  src: 'image url here',
+
   alt: '제품 이미지'
 })`
 
@@ -65,16 +65,16 @@ const Rate = styled.em`
 
 function Goods2(props) {
   return (
-    <GoodsWrapper>
+    <GoodsWrapper to="/">
       <ThumbnailBox>
-        <Thumbnail></Thumbnail>
+        <Thumbnail src={props.goods.image}></Thumbnail>
       </ThumbnailBox>
 
       <Information>
-        <Brand>brand</Brand>
-        <Name>Name</Name>
-        <Price>1000원</Price>
-        <Rate>1%</Rate>
+        <Brand>{props.goods.brand}</Brand>
+        <Name>{props.goods.name}</Name>
+        <Price>{props.goods.price}원</Price>
+        <Rate>{props.goods.rate}</Rate>
       </Information>
     </GoodsWrapper>
   )
