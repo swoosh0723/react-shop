@@ -70,13 +70,16 @@ function GoodsList(props) {
   console.log(column)
 
   function viewTypeToggle() {
+
+    // 첫번째! 노가다
     // viewType === '1fr 1fr'
     //   ? viewTypeChange('1fr 1fr 1fr')
     //   : viewType === '1fr 1fr 1fr'
     //     ? viewTypeChange('1fr')
     //     : viewTypeChange('1fr 1fr')
 
-
+    // 두번째!
+    // 첫번째에서 변수만 받아서 하는 수준 덕분에 repeat() 학습
     // columnCount === 2
     //   ? columnCountChange(3)
     //   : columnCount === 3
@@ -85,11 +88,17 @@ function GoodsList(props) {
 
     // viewTypeChange(columnTemplate)
 
-    if (repeatCount === 3) {
-      repeatCountChange(1)
-    } else {
-      repeatCountChange(repeatCount + 1);
-    }
+    // 세번째 완성인덧?
+    // if (repeatCount === 3) {
+    //   repeatCountChange(1)
+    // } else {
+    //   repeatCountChange(repeatCount + 1);
+    // }
+
+    // 세번째 삼항 조건 연산자로
+    repeatCount === 3
+      ? repeatCountChange(1)
+      : repeatCountChange(repeatCount + 1);
   }
 
   return (
