@@ -58,10 +58,10 @@ function GoodsList(props) {
   const [goodsCount, goodsCountChange] = useState(props.goods.length)
 
   const columnSize = '1fr'
-  const [colmunsCount, colmunsCountChange] = useState(2)
+  const [colmunCount, colmunCountChange] = useState(2)
 
 
-  const columnTemplate = (columnSize + ' ').repeat(colmunsCount)
+  const columnTemplate = (columnSize + ' ').repeat(colmunCount)
   const [viewType, viewTypeChange] = useState(columnTemplate);
 
   function viewTypeToggle() {
@@ -72,11 +72,11 @@ function GoodsList(props) {
     //     : viewTypeChange('1fr 1fr')
 
 
-    colmunsCount === 2
-      ? colmunsCountChange(3)
-      : colmunsCount === 3
-        ? colmunsCountChange(1)
-        : colmunsCountChange(2)
+    colmunCount === 2
+      ? colmunCountChange(3)
+      : colmunCount === 3
+        ? colmunCountChange(1)
+        : colmunCountChange(2)
 
     viewTypeChange(columnTemplate)
   }
