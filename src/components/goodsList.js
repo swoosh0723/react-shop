@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Goods2 from './goods2'
 
+
 const List = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: ${props => props.column};
   /* grid-template-columns: repeat(3, 1fr); */
@@ -53,6 +55,21 @@ const MoreButton = styled.button`
   color: white;
 `
 
+const Loading = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  background-color: black;
+  transform: translate(-50%,-50%);
+  color: white;
+`
+
 
 function GoodsList(props) {
 
@@ -70,7 +87,6 @@ function GoodsList(props) {
   console.log(column)
 
   function viewTypeToggle() {
-
     // 첫번째! 노가다
     // viewType === '1fr 1fr'
     //   ? viewTypeChange('1fr 1fr 1fr')
@@ -132,7 +148,7 @@ function GoodsList(props) {
 
       <MoreButton
         type="button"
-        onClick={() => { console.log(321) }}
+        onClick={props.moreGoods}
       >
         더보기
       </MoreButton>
