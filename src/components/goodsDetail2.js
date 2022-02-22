@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 const DetialWrapper = styled.div`
@@ -88,35 +88,56 @@ const Button = styled.button`
   border: none;
   background-color: ${props => props.primary ? "#0078ff" : "#ccc"};
   font-size: 16px;
-  color: white;
   color: ${props => props.primary ? "white" : "black"};
-
 `
 
 function GoodsDetail(props) {
-  const [stockCount, stockCountChange] = useState(3)
+  const history = useHistory();
+  const { id } = useParams();
+
+  const item = props.goods.find((goodsItem) => {
+    return goodsItem.id == id
+  })
+
+  const [stockCount, stockCountChange] = useState(item.stock)
+  const [orderText, orderTextChange] = useState('구매하기')
 
   function order() {
     stockCount > 1
       ? stockCountChange(stockCount - 1)
       : stockCountChange('재고가 없습니다')
+      || orderTextChange('품절')
+
+    // if (stockCount > 1) {
+    //   stockCountChange(stockCount - 1)
+    // } else {
+    //   stockCountChange('재고가 없습니다')
+    //   orderTextChange('품절')
+    // }
   }
+
+
+  function historyBack() {
+    // history.push('/')
+    history.push('/');
+  }
+
 
   return (
     <>
       <DetialWrapper>
         <ThumbnailBox>
           <Thumbnail
-            src={props.goods[0].image}
+            src={item.image}
           >
           </Thumbnail>
         </ThumbnailBox>
 
         <Information>
-          <Brand>{props.goods[0].brand}</Brand>
-          <Name>{props.goods[0].name}</Name>
-          <Price>{props.goods[0].price}</Price>
-          <Rate>{props.goods[0].rate}</Rate>
+          <Brand>{item.brand}</Brand>
+          <Name>{item.name}</Name>
+          <Price>{item.price}</Price>
+          <Rate>{item.rate}</Rate>
           <Stock stockCount={stockCount}>
             재고:&nbsp;<span>{stockCount}</span>
           </Stock>
@@ -124,15 +145,18 @@ function GoodsDetail(props) {
       </DetialWrapper>
 
       <ButtonBox>
-        <Button>
-          뒤로가기
+        <Button
+          onClick={historyBack}
+        >
+          홈으로
         </Button>
         <Button
           primary
           stockCount={stockCount}
+          orderText={orderText}
           onClick={order}
         >
-          구매하기
+          {orderText}
         </Button>
       </ButtonBox>
     </>
