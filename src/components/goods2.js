@@ -15,7 +15,6 @@ const ThumbnailBox = styled.div`
 `
 
 const Thumbnail = styled.img.attrs({
-
   alt: '제품 이미지'
 })`
 
