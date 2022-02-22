@@ -35,10 +35,18 @@ function App() {
       })
   }
 
+  const goodsNumber = goods.length - 1;
+  const detailRandom = Math.round(Math.random() * goodsNumber)
+
+  console.log(goodsNumber)
+  console.log(detailRandom)
+
 
   return (
     <div className="main">
-      <Header></Header>
+      <Header
+        detailRandom={detailRandom}
+      ></Header>
 
       <Switch>
         {/* Main */}
@@ -59,7 +67,7 @@ function App() {
         </Route>
 
         {/* detail */}
-        <Route exact path="/detail">
+        <Route exact path="/detail/:id">
           <GoodsDetail2
             goods={goods}
           >

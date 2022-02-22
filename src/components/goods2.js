@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import styled from 'styled-components'
 
@@ -63,8 +62,13 @@ const Rate = styled.em`
 `
 
 function Goods2(props) {
+  const goodsId = props.goods.id
+
   return (
-    <GoodsWrapper to="/">
+    <GoodsWrapper
+      as={Link}
+      to={'/detail/' + goodsId}
+    >
       <ThumbnailBox>
         <Thumbnail src={props.goods.image}></Thumbnail>
       </ThumbnailBox>

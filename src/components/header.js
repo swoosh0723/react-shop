@@ -27,13 +27,13 @@ const Menu = styled(Link)`
   color: white;
 `
 
-function Header() {
+function Header(props) {
   return (
     <Wrapper>
       <Logo>REACT-SHOP</Logo>
       <Menu as={Link} to="/#">HOME</Menu>
-      <Menu as={Link} to="/detail">Detail</Menu>
-    </Wrapper>
+      <Menu as={Link} to={"/detail/" + props.detailRandom}>Random Detail</Menu>
+    </Wrapper >
   )
 }
 
