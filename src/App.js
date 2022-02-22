@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import './App.css';
 
+import axios from 'axios';
+import { Link, Route, Switch } from 'react-router-dom';
+
 import dataGoods from './dataGoods'
 
 import Header from './components/header'
@@ -10,7 +13,6 @@ import GoodsList from './components/goodsList'
 import GoodsDetail2 from './components/goodsDetail2'
 import Loading from './components/loading'
 
-import axios from 'axios';
 
 function App() {
   const [goods, goodsChange] = useState(dataGoods);
@@ -37,21 +39,33 @@ function App() {
   return (
     <div className="main">
       <Header></Header>
-      <MainBanner></MainBanner>
 
-      <GoodsDetail2></GoodsDetail2>
-      <GoodsList
-        goods={goods}
-        moreGoods={moreGoods}
-      >
-      </GoodsList>
+      <Switch>
+        {/* Main */}
+        <Route exact path="/">
+          <MainBanner></MainBanner>
 
-      {
+          <GoodsList
+            goods={goods}
+            moreGoods={moreGoods}
+          >
+          </GoodsList>
 
-        loading
-          ? <Loading></Loading>
-          : null
-      }
+          {
+            loading
+              ? <Loading></Loading>
+              : null
+          }
+        </Route>
+
+        {/* detail */}
+        <Route exact path="/detail">
+          <GoodsDetail2
+            goods={goods}
+          >
+          </GoodsDetail2>
+        </Route>
+      </Switch>
     </div>
   );
 }
