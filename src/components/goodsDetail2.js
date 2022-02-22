@@ -55,34 +55,42 @@ const Rate = styled.em`
 `
 
 const Stock = styled.span`
+  display: flex;
+  align-items: center;
+  min-width: 155px;
+  height: 25px;
   font-size: 12px;
   font-size: 700;
 
   span {
-    color: ${({ stockCount }) => (stockCount < 3 ? 'red' : 'green')};
+    font-size: ${({ stockCount }) => stockCount > 0 ? '12px' : '16px'};
+    font-weight: 700;
+    color: ${({ stockCount }) => stockCount > 0 ? '#0078ff' : 'red'};
   }
 `
 
 const ButtonBox = styled.div`
-width: 100%;
-padding: 0 15px;
-margin: 30px 0;
-box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 10px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 30px 0;
+  box-sizing: border-box;
 `
 
 const Button = styled.button`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
-height: 40px;
-border-radius: 4px;
-border: 1px solid #0078ff;
-background-color: #0078ff;
-font-family: Musinsa, "-apple-system", "Apple SD Gothic Neo", Roboto,
-  "Noto Sans KR", helvetica, Gulim, sans - serif;
-font-size: 16px;
-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background-color: ${props => props.primary ? "#0078ff" : "#ccc"};
+  font-size: 16px;
+  color: white;
+  color: ${props => props.primary ? "white" : "black"};
+
 `
 
 function GoodsDetail(props) {
@@ -91,7 +99,7 @@ function GoodsDetail(props) {
   function order() {
     stockCount > 1
       ? stockCountChange(stockCount - 1)
-      : stockCountChange('재고없음')
+      : stockCountChange('재고가 없습니다')
   }
 
   return (
@@ -109,14 +117,18 @@ function GoodsDetail(props) {
           <Name>{props.goods[0].name}</Name>
           <Price>{props.goods[0].price}</Price>
           <Rate>{props.goods[0].rate}</Rate>
-          <Stock>
-            재고: <span>{stockCount}</span>
+          <Stock stockCount={stockCount}>
+            재고:&nbsp;<span>{stockCount}</span>
           </Stock>
         </Information>
       </DetialWrapper>
 
       <ButtonBox>
+        <Button>
+          뒤로가기
+        </Button>
         <Button
+          primary
           stockCount={stockCount}
           onClick={order}
         >
