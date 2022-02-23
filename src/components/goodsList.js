@@ -55,29 +55,8 @@ const MoreButton = styled.button`
   color: white;
 `
 
-const Loading = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  width: 100px;
-  height: 100px;
-  border-radius: 100px;
-  background-color: black;
-  transform: translate(-50%,-50%);
-  color: white;
-`
-
 
 function GoodsList(props) {
-  // const columnSize = '1fr'
-  // const [columnCount, columnCountChange] = useState(2)
-
-  // const columnTemplate = (columnSize + ' ').repeat(columnCount)
-  // const [viewType, viewTypeChange] = useState(columnTemplate);
-
   const [repeatCount, repeatCountChange] = useState(2);
   const column = 'repeat(' + repeatCount + ', 1fr)';
 
