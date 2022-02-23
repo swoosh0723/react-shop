@@ -115,7 +115,7 @@ function GoodsList(props) {
 
   useEffect(() => {
     console.log(column)
-  }, [repeatCount]);
+  }, [column]);
 
   return (
     <>
