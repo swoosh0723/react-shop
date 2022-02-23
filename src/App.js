@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 import axios from 'axios';
@@ -17,6 +17,7 @@ import Loading from './components/loading'
 function App() {
   const [goods, goodsChange] = useState(dataGoods);
   const [loading, loadingChange] = useState(false)
+  const [moreButtonShow, moreButtonShowChange] = useState(true)
 
   // 상품 더보기
   function moreGoods() {
@@ -27,20 +28,19 @@ function App() {
           ...goods,
           ...result.data
         ];
-
         goodsChange(goodsMore)
       })
       .catch(() => {
         loadingChange(true)
       })
+
+    moreButtonShowChange(false)
   }
 
-  const goodsNumber = goods.length - 1;
-  const detailRandom = Math.round(Math.random() * goodsNumber)
-
-  console.log(goodsNumber)
-  console.log(detailRandom)
-
+  // goods의 총합
+  const goodsTotal = goods.length
+  // goods id값 랜덤
+  const detailRandom = Math.round(Math.random() * (goodsTotal - 1))
 
   return (
     <div className="main">
@@ -55,7 +55,9 @@ function App() {
 
           <GoodsList
             goods={goods}
+            goodsTotal={goodsTotal}
             moreGoods={moreGoods}
+            moreButtonShow={moreButtonShow}
           >
           </GoodsList>
 

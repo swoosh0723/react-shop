@@ -72,9 +72,6 @@ const Loading = styled.div`
 
 
 function GoodsList(props) {
-
-  const [goodsCount, goodsCountChange] = useState(props.goods.length)
-
   // const columnSize = '1fr'
   // const [columnCount, columnCountChange] = useState(2)
 
@@ -83,8 +80,6 @@ function GoodsList(props) {
 
   const [repeatCount, repeatCountChange] = useState(2);
   const column = 'repeat(' + repeatCount + ', 1fr)';
-
-  console.log(column)
 
   function viewTypeToggle() {
     // 첫번째! 노가다
@@ -117,11 +112,16 @@ function GoodsList(props) {
       : repeatCountChange(repeatCount + 1);
   }
 
+
+  useEffect(() => {
+    console.log(column)
+  }, [repeatCount]);
+
   return (
     <>
       <UtilBar>
         <Count>
-          상품 수: {goodsCount}개
+          상품 수: {props.goodsTotal}개
         </Count>
 
         <ViewButton
@@ -146,12 +146,16 @@ function GoodsList(props) {
         }
       </List>
 
-      <MoreButton
-        type="button"
-        onClick={props.moreGoods}
-      >
-        더보기
-      </MoreButton>
+      {
+        props.moreButtonShow
+          ? <MoreButton
+            type="button"
+            onClick={props.moreGoods}
+          >
+            더보기
+          </MoreButton>
+          : null
+      }
     </>
   )
 }

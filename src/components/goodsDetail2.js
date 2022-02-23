@@ -114,6 +114,8 @@ function GoodsDetail(props) {
     //   stockCountChange('재고가 없습니다')
     //   orderTextChange('품절')
     // }
+
+    console.log(stockCount)
   }
 
 
