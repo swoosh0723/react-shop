@@ -96,7 +96,7 @@ function GoodsDetail(props) {
   const { id } = useParams();
 
   const item = props.goods.find((goodsItem) => {
-    return goodsItem.id == id
+    return goodsItem.id = id
   })
 
   const [stockCount, stockCountChange] = useState(item.stock)
@@ -114,8 +114,6 @@ function GoodsDetail(props) {
     //   stockCountChange('재고가 없습니다')
     //   orderTextChange('품절')
     // }
-
-    console.log(stockCount)
   }
 
 
