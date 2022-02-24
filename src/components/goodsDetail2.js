@@ -91,6 +91,36 @@ const Button = styled.button`
   color: ${props => props.primary ? "white" : "black"};
 `
 
+const TabBox = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 6px;
+  padding: 0 15px;
+`
+
+const ButtonTab = styled.button`
+  height: 50px;
+  border: none;
+  border-radius: 6px;
+  background-color: ${props => props.tabColor ? "#0078ff" : "#ccc"};
+`
+
+const TabContentsBox = styled.div`
+  padding: 0 15px;
+  margin-top: 30px;
+`
+
+const TabContents = styled.div`
+  width: 100%;
+  height: 200px;
+  margin-bottom: 40px;
+  background-color:pink;
+  text-align: center;
+  line-height: 30px;
+  font-size: 20px;
+`
+
+
 function GoodsDetail(props) {
   const history = useHistory();
   const { id } = useParams();
@@ -101,6 +131,16 @@ function GoodsDetail(props) {
 
   const [stockCount, stockCountChange] = useState(item.stock)
   const [orderText, orderTextChange] = useState('구매하기')
+  const [tab, tabChange] = useState(0)
+  const [tabButton, tabButtonChange] = useState([
+    0, 1, 2
+  ])
+  const [tabText, tabTextChange] = useState([
+    '1번째 탭 텍스트 입니다',
+    '2번째 탭 텍스트 입니다',
+    '3번째 탭 텍스트 입니다',
+  ])
+  const [tabColor, tabColorChange] = useState('#0078ff');
 
   function order() {
     stockCount > 1
@@ -158,6 +198,43 @@ function GoodsDetail(props) {
           {orderText}
         </Button>
       </ButtonBox>
+
+      <TabBox>
+        {
+          tabButton.map((item, i) => {
+            return (
+              <ButtonTab
+                key={i}
+                onClick={() => {
+                  tabColor === '#0078ff' ? tabColorChange('#fff') : tabColorChange('#0078ff')
+                  tabChange(item)
+                }}
+              >
+                {item + 1}
+              </ButtonTab>
+            )
+          })
+        }
+      </TabBox>
+
+      <TabContentsBox>
+        {
+          tabText.map((item, i) => {
+            if (tab === i) {
+              return (
+
+                <TabContents
+                  key={i}
+                >
+                  {item}
+                </TabContents>
+
+              )
+            }
+          })
+        }
+
+      </TabContentsBox>
     </>
   )
 

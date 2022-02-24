@@ -2,6 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import Goods2 from './goods2'
 
+import { stockContext } from '../App';
+
+
 
 const List = styled.div`
   position: relative;
@@ -58,7 +61,6 @@ const MoreButton = styled.button`
   font-size: 14px;
   color: white;
 `
-
 
 function GoodsList(props) {
   const [repeatCount, repeatCountChange] = useState(2);

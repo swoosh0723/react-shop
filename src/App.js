@@ -1,6 +1,4 @@
-
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import './App.css';
 
 import axios from 'axios';
@@ -14,7 +12,7 @@ import GoodsList from './components/goodsList'
 import GoodsDetail2 from './components/goodsDetail2'
 import Loading from './components/loading'
 
-const stockContext = React.createContext();
+export const stockContext = React.createContext();
 
 
 function App() {
