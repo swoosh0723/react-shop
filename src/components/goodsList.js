@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 import Goods2 from './goods2'
 
@@ -11,7 +11,7 @@ const List = styled.div`
   gap: 8px 12px;
   width: 100%;
   padding: 0 15px;
-  margin-top: 24px;
+  margin: 24px 0 40px;
   box-sizing: border-box;
 `
 
@@ -26,8 +26,12 @@ const UtilBar = styled.div`
 `
 
 const Count = styled.span`
+  display: block;
+  padding: 6px;
   font-size: 12px;
-  color: white;
+  font-weight: 700;
+  color: black;
+  background-color: pink;
 `
 
 const ViewButton = styled.button`
@@ -45,7 +49,7 @@ const MoreButton = styled.button`
   width: 120px;
   height: 40px;
   padding: 0;
-  margin: 40px auto;
+  margin: 0 auto 40px;
   border: none;
   border-radius: 4px;
   background-color: #0078ff;
@@ -59,6 +63,10 @@ const MoreButton = styled.button`
 function GoodsList(props) {
   const [repeatCount, repeatCountChange] = useState(2);
   const column = 'repeat(' + repeatCount + ', 1fr)';
+
+  const test = useContext(stockContext);
+
+  console.log(test)
 
   function viewTypeToggle() {
     // 첫번째! 노가다
