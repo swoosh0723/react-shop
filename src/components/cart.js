@@ -10,7 +10,6 @@ const Table = styled.table`
 
 function Cart(props) {
   const cartData = useSelector((state) => state)
-  console.log(cartData.reducer)
 
   const dispatchTest = useDispatch();
 

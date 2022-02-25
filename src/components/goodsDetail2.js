@@ -159,7 +159,7 @@ function GoodsDetail(props) {
   }
 
   function addCart() {
-    props.dispatch({ type: 'addCart', payload: { id: 5, name: '장부기니 상품', stock: 2 } })
+    props.dispatch({ type: 'addCart', data: { id: item.id, name: item.name, stock: item.stock } })
 
     history.push('/cart')
   }

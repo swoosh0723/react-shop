@@ -16,7 +16,26 @@ const basicState = dataGoods;
 
 function reducer(state = basicState, action) {
   if (action.type === 'addCart') {
-    console.log('addCart')
+
+    const found = state.findIndex((e) => {
+      return e.id === action.data.id
+
+      console.log(e.id)
+    })
+
+    if (found >= 0) {
+      const copyItem = [...state]
+      copyItem[found].stock++
+      return copyItem;
+
+    } else {
+      const addCartItem = [...state]
+
+      addCartItem.push(action.data)
+
+      return addCartItem;
+    }
+
   } else if (action.type === 'plus') {
     const statePlus = [...state]
     statePlus[action.data].stock++
