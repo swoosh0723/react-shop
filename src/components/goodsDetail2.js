@@ -102,7 +102,7 @@ const ButtonTab = styled.button`
   height: 50px;
   border: none;
   border-radius: 6px;
-  background-color: ${props => props.tabColor ? "#0078ff" : "#ccc"};
+  background-color: ${({ tabColor }) => tabColor ? '#0078ff' : 'red'};;
 `
 
 const TabContentsBox = styled.div`
@@ -140,7 +140,8 @@ function GoodsDetail(props) {
     '2번째 탭 텍스트 입니다',
     '3번째 탭 텍스트 입니다',
   ])
-  const [tabColor, tabColorChange] = useState('#0078ff');
+
+  const [tabColor, tabColorChange] = useState(false)
 
   function order() {
     stockCount > 1
@@ -205,8 +206,8 @@ function GoodsDetail(props) {
             return (
               <ButtonTab
                 key={i}
+                tabColor={tabColor}
                 onClick={() => {
-                  tabColor === '#0078ff' ? tabColorChange('#fff') : tabColorChange('#0078ff')
                   tabChange(item)
                 }}
               >
@@ -222,7 +223,6 @@ function GoodsDetail(props) {
           tabText.map((item, i) => {
             if (tab === i) {
               return (
-
                 <TabContents
                   key={i}
                 >
