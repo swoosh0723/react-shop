@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 
 const Table = styled.table`
   width: 100%;
@@ -9,6 +9,11 @@ const Table = styled.table`
 `
 
 function Cart(props) {
+  const cartData = useSelector((state) => state)
+  console.log(cartData.reducer)
+
+  const dispatchTest = useDispatch();
+
   return (
     <Table>
       <thead>
@@ -21,7 +26,7 @@ function Cart(props) {
       </thead>
       <tbody>
         {
-          props.cartData.map((item, i) => {
+          cartData.reducer.map((item, i) => {
             return (
               <tr key={i}>
                 <td>{item.id}</td>
@@ -31,7 +36,7 @@ function Cart(props) {
                   <button
                     onClick={() => {
                       // 데이터 수정 요청을 할ㄷ 때
-                      props.dispatch({ type: 'plus', payload: { name: 'kim' } })
+                      dispatchTest({ type: 'plus' })
                     }}
                   >
                     +
@@ -39,7 +44,7 @@ function Cart(props) {
 
                   <button
                     onClick={() => {
-                      props.dispatch({ type: 'minus' })
+                      dispatchTest({ type: 'minus' })
                     }}
                   >
                     -
@@ -54,14 +59,13 @@ function Cart(props) {
   )
 }
 
-function test123(cartData) {
-  return {
-    cartData: cartData.reducer
-  }
-}
+// function cartData(cartData) {
+//   return {
+//     cartData: cartData.reducer
+//   }
+// }
 
-export default connect(test123)(Cart)
+// export default connect(cartData)(Cart)
 
-
-// export default Cart
+export default Cart
 
