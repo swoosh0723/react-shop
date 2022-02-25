@@ -31,7 +31,7 @@ function Cart(props) {
                   <button
                     onClick={() => {
                       // 데이터 수정 요청을 할ㄷ 때
-                      props.dispatch({ type: 'plus' })
+                      props.dispatch({ type: 'plus', payload: { name: 'kim' } })
                     }}
                   >
                     +
@@ -56,7 +56,7 @@ function Cart(props) {
 
 function test123(cartData) {
   return {
-    cartData: cartData
+    cartData: cartData.reducer
   }
 }
 

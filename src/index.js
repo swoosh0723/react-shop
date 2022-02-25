@@ -8,7 +8,13 @@ import { HashRouter } from 'react-router-dom';
 
 // redux
 import { Provider } from 'react-redux'
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+
+const basicState2 = true;
+
+function reducer2(state = basicState2, action) {
+  return state;
+}
 
 const basicState = [
   {
@@ -36,7 +42,13 @@ const basicState = [
 // state = 어쩌구 저쩌구 ES6 문법
 // basicState 데이터 초기값
 function reducer(state = basicState, action) {
-  if (action.type === 'plus') {
+  if (action.type === 'addCart') {
+    const addCartItem = [...state]
+    addCartItem.push(action.payload);
+
+    return addCartItem
+
+  } else if (action.type === 'plus') {
     const statePlus = [...state]
     statePlus[0].stock++
 
@@ -56,7 +68,7 @@ function reducer(state = basicState, action) {
   }
 }
 
-const store = createStore(reducer);
+const store = createStore(combineReducers({ reducer, reducer2 }));
 
 
 ReactDOM.render(

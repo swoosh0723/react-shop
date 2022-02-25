@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -144,10 +145,10 @@ function GoodsDetail(props) {
   const [tabColor, tabColorChange] = useState(false)
 
   function order() {
-    stockCount > 1
-      ? stockCountChange(stockCount - 1)
-      : stockCountChange('재고가 없습니다')
-      || orderTextChange('품절')
+    // stockCount > 1
+    //   ? stockCountChange(stockCount - 1)
+    //   : stockCountChange('재고가 없습니다')
+    //   || orderTextChange('품절')
 
     // if (stockCount > 1) {
     //   stockCountChange(stockCount - 1)
@@ -155,6 +156,10 @@ function GoodsDetail(props) {
     //   stockCountChange('재고가 없습니다')
     //   orderTextChange('품절')
     // }
+
+    props.dispatch({ type: 'addCart', payload: { id: 5, name: '장부기니 상품', stock: 2 } })
+
+    console.log(0)
   }
 
   function historyBack() {
@@ -240,4 +245,10 @@ function GoodsDetail(props) {
 
 }
 
-export default GoodsDetail
+function test123(cartData) {
+  return {
+    cartData: cartData.reducer
+  }
+}
+
+export default connect(test123)(GoodsDetail)
