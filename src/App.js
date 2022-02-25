@@ -11,6 +11,7 @@ import MainBanner from './components/mainBanner'
 import GoodsList from './components/goodsList'
 import GoodsDetail2 from './components/goodsDetail2'
 import Loading from './components/loading'
+import Cart from './components/cart'
 
 export const stockContext = React.createContext();
 
@@ -52,6 +53,7 @@ function App() {
         detailRandom={detailRandom}
       ></Header>
 
+
       <Switch>
         {/* Main */}
         <Route exact path="/">
@@ -80,6 +82,11 @@ function App() {
             goods={goods}
           >
           </GoodsDetail2>
+        </Route>
+
+        {/* cart */}
+        <Route path="/cart">
+          <Cart></Cart>
         </Route>
       </Switch>
     </div>
