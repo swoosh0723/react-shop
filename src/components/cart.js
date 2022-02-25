@@ -36,7 +36,7 @@ function Cart(props) {
                   <button
                     onClick={() => {
                       // 데이터 수정 요청을 할ㄷ 때
-                      dispatchTest({ type: 'plus' })
+                      dispatchTest({ type: 'plus', data: item.id })
                     }}
                   >
                     +
@@ -44,7 +44,7 @@ function Cart(props) {
 
                   <button
                     onClick={() => {
-                      dispatchTest({ type: 'minus' })
+                      dispatchTest({ type: 'minus', data: item.id })
                     }}
                   >
                     -

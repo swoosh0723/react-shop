@@ -19,13 +19,13 @@ function reducer(state = basicState, action) {
     console.log('addCart')
   } else if (action.type === 'plus') {
     const statePlus = [...state]
-    statePlus[0].stock++
+    statePlus[action.data].stock++
 
     return statePlus;
 
   } else if (action.type === 'minus') {
     const stateMinus = [...state]
-    stateMinus[0].stock--
+    stateMinus[action.data].stock--
 
     return stateMinus;
 
