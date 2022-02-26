@@ -9,7 +9,8 @@ const Table = styled.table`
 `
 
 function Cart(props) {
-  const cartData = useSelector((state) => state)
+  const cartData = useSelector((state) => state.reducer)
+  console.log(cartData)
 
   const dispatchTest = useDispatch();
 
@@ -25,7 +26,7 @@ function Cart(props) {
       </thead>
       <tbody>
         {
-          cartData.reducer.map((item, i) => {
+          cartData.map((item, i) => {
             return (
               <tr key={i}>
                 <td>{item.id}</td>

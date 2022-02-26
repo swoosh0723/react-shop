@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import dataGoods from './dataCart'
+import dataCart from './dataCart'
 
 import { HashRouter } from 'react-router-dom';
 
@@ -12,15 +12,13 @@ import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux';
 
 
-const basicState = dataGoods;
+const basicState = dataCart;
 
 function reducer(state = basicState, action) {
   if (action.type === 'addCart') {
 
     const found = state.findIndex((e) => {
       return e.id === action.data.id
-
-      console.log(e.id)
     })
 
     if (found >= 0) {
