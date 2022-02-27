@@ -103,7 +103,7 @@ const ButtonTab = styled.button`
   height: 50px;
   border: none;
   border-radius: 6px;
-  background-color: ${({ tabColor }) => tabColor ? '#0078ff' : 'red'};;
+  background-color: #ccc;
 `
 
 const TabContentsBox = styled.div`
@@ -145,10 +145,10 @@ function GoodsDetail(props) {
   const [tabColor, tabColorChange] = useState(false)
 
   function order() {
-    // stockCount > 1
-    //   ? stockCountChange(stockCount - 1)
-    //   : stockCountChange('재고가 없습니다')
-    //   || orderTextChange('품절')
+    stockCount > 1
+      ? stockCountChange(stockCount - 1)
+      : stockCountChange('재고가 없습니다')
+      || orderTextChange('품절')
 
     // if (stockCount > 1) {
     //   stockCountChange(stockCount - 1)
@@ -156,8 +156,10 @@ function GoodsDetail(props) {
     //   stockCountChange('재고가 없습니다')
     //   orderTextChange('품절')
     // }
+  }
 
-    props.dispatch({ type: 'addCart', payload: { id: 5, name: '장부기니 상품', stock: 2 } })
+  function addCart() {
+    props.dispatch({ type: 'addCart', data: { id: item.id, name: item.name, stock: item.stock } })
 
     history.push('/cart')
   }
@@ -190,11 +192,7 @@ function GoodsDetail(props) {
       </DetialWrapper>
 
       <ButtonBox>
-        <Button
-          onClick={historyBack}
-        >
-          홈으로
-        </Button>
+
         <Button
           primary
           stockCount={stockCount}
@@ -202,6 +200,11 @@ function GoodsDetail(props) {
           onClick={order}
         >
           {orderText}
+        </Button>
+        <Button
+          onClick={addCart}
+        >
+          장바구니
         </Button>
       </ButtonBox>
 

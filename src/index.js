@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import dataCart from './dataCart'
 
 import { HashRouter } from 'react-router-dom';
 
@@ -10,65 +11,85 @@ import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux';
 
+
+const basicState = dataCart;
+
+function reducer(state = basicState, action) {
+  if (action.type === 'addCart') {
+
+    const found = state.findIndex((e) => {
+      return e.id === action.data.id
+    })
+
+    if (found >= 0) {
+      const copyItem = [...state]
+      copyItem[found].stock++
+      return copyItem;
+
+    } else {
+      const addCartItem = [...state]
+
+      addCartItem.push(action.data)
+
+      return addCartItem;
+    }
+
+  } else if (action.type === 'plus') {
+    const statePlus = [...state]
+    statePlus[action.data].stock++
+
+    return statePlus;
+
+  } else if (action.type === 'minus') {
+    const stateMinus = [...state]
+    stateMinus[action.data].stock--
+
+    return stateMinus;
+
+  } else {
+    return state;
+  }
+
+}
+
+// state = 어쩌구 저쩌구 ES6 문법
+// basicState 데이터 초기값
+// function reducer(state = basicState, action) {
+//   if (action.type === 'addCart') {
+//     const addCartItem = [...state]
+//     addCartItem.push(action.payload);
+
+//     return addCartItem
+
+//   } else if (action.type === 'plus') {
+//     const statePlus = [...state]
+//     statePlus[0].stock++
+
+//     return statePlus
+//   } else if (action.type === 'minus') {
+//     const stateMinus = [...state]
+
+//     if (stateMinus[0].stock > 0) {
+//       stateMinus[0].stock--
+//       // stateMinus[0].stock = stateMinus[0].stock - 1;
+//     }
+
+//     return stateMinus
+//   }
+
+//   else {
+//     return state
+//   }
+// }
+
 const basicState2 = true;
 
 function reducer2(state = basicState2, action) {
   return state;
 }
 
-const basicState = [
-  {
-    id: 0,
-    name: 'nike 슈즈1',
-    stock: 2
-  },
-  {
-    id: 1,
-    name: 'nike 슈즈2',
-    stock: 3
-  },
-  {
-    id: 2,
-    name: 'nike 슈즈3',
-    stock: 5
-  },
-  {
-    id: 3,
-    name: 'nike 슈즈4',
-    stock: 6
-  },
-]
-
-// state = 어쩌구 저쩌구 ES6 문법
-// basicState 데이터 초기값
-function reducer(state = basicState, action) {
-  if (action.type === 'addCart') {
-    const addCartItem = [...state]
-    addCartItem.push(action.payload);
-
-    return addCartItem
-
-  } else if (action.type === 'plus') {
-    const statePlus = [...state]
-    statePlus[0].stock++
-
-    return statePlus
-  } else if (action.type === 'minus') {
-    const stateMinus = [...state]
-
-    if (stateMinus[0].stock > 0) {
-      stateMinus[0].stock--
-      // stateMinus[0].stock = stateMinus[0].stock - 1;
-    }
-    return stateMinus
-  }
-
-  else {
-    return state
-  }
-}
-
-const store = createStore(combineReducers({ reducer, reducer2 }));
+// const store = createStore(combineReducers({ reducer, reducer2 }));
+const store = createStore(combineReducers({ reducer, reducer2 }))
 
 
 ReactDOM.render(

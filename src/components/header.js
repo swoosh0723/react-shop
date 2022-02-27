@@ -14,9 +14,10 @@ const Wrapper = styled.div`
   background-color: black;
 `
 
-const Logo = styled.h1`
+const Logo = styled(Link)`
   margin: 0;
   font-size: 15px;
+  text-decoration: none;
   color: white;
 `
 
@@ -30,8 +31,8 @@ const Menu = styled(Link)`
 function Header(props) {
   return (
     <Wrapper>
-      <Logo>REACT-SHOP</Logo>
-      <Menu as={Link} to="/#">HOME</Menu>
+      <Logo to='/'>REACT-SHOP</Logo>
+      <Menu as={Link} to="/cart">Cart</Menu>
       <Menu as={Link} to={"/detail/" + props.detailRandom}>Random Detail</Menu>
     </Wrapper >
   )
