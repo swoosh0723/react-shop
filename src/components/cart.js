@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import styled from 'styled-components'
 import { connect, useDispatch, useSelector } from 'react-redux'
 
@@ -132,6 +132,8 @@ function Cart(props) {
           onClick={ageTest}
         >누르면 한살 추가</button>
       </div>
+
+      <Parent 이름="존박" 나이="20" />
     </>
   )
 }
@@ -149,6 +151,25 @@ function Information(props) {
     </div>
   )
 }
+
+function Parent(props) {
+  return (
+    <div>
+      <Child1 이름={props.존박} />
+      <Child2 나이={props.나이} />
+    </div>
+  )
+}
+
+function Child1() {
+  useEffect(() => { console.log('렌더링됨1') });
+  return <div>1111</div>
+}
+
+const Child2 = memo(function () {
+  useEffect(() => { console.log('렌더링됨2') });
+  return <div>2222</div>
+})
 
 // function cartData(cartData) {
 //   return {
