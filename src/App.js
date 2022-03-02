@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, lazy, Suspense } from 'react';
 import './App.css';
 
 import axios from 'axios';
@@ -9,9 +9,10 @@ import dataGoods from './dataGoods'
 import Header from './components/header'
 import MainBanner from './components/mainBanner'
 import GoodsList from './components/goodsList'
-import GoodsDetail2 from './components/goodsDetail2'
 import Loading from './components/loading'
 import Cart from './components/cart'
+// import GoodsDetail2 from './components/goodsDetail2'
+const GoodsDetail2 = lazy(() => { return import('./components/goodsDetail2') })
 
 export const stockContext = React.createContext();
 
@@ -79,10 +80,12 @@ function App() {
 
         {/* detail */}
         <Route exact path="/detail/:id">
-          <GoodsDetail2
-            goods={goods}
-          >
-          </GoodsDetail2>
+          <Suspense fallback={<div>로딩중입니다</div>}>
+            <GoodsDetail2
+              goods={goods}
+            >
+            </GoodsDetail2>
+          </Suspense>
         </Route>
 
         {/* cart */}

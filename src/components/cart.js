@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import styled from 'styled-components'
 import { connect, useDispatch, useSelector } from 'react-redux'
 
@@ -42,6 +42,20 @@ function Cart(props) {
   )
 
   const [state, setState] = useState('shipping')
+
+  const [count, setCount] = useState(0)
+  const [age, setAge] = useState(20)
+
+  function ageTest() {
+    setCount(count + 1);
+  }
+
+  useEffect(() => {
+    if (count !== 0 && count < 3) {
+      setAge(age + 1)
+    }
+  }, [count])
+
 
   return (
     <>
@@ -107,6 +121,19 @@ function Cart(props) {
         state={state}
         setState={setState}
       ></Information>
+
+      <p>테스트!!! async</p>
+
+      <div>
+        <div>
+          안녕하세요 저는 {age}
+        </div>
+        <button
+          onClick={ageTest}
+        >누르면 한살 추가</button>
+      </div>
+
+      <Parent 이름="존박" 나이="20" />
     </>
   )
 }
@@ -124,6 +151,25 @@ function Information(props) {
     </div>
   )
 }
+
+function Parent(props) {
+  return (
+    <div>
+      <Child1 이름={props.존박} />
+      <Child2 나이={props.나이} />
+    </div>
+  )
+}
+
+function Child1() {
+  useEffect(() => { console.log('렌더링됨1') });
+  return <div>1111</div>
+}
+
+const Child2 = memo(function () {
+  useEffect(() => { console.log('렌더링됨2') });
+  return <div>2222</div>
+})
 
 // function cartData(cartData) {
 //   return {
