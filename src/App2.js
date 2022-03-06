@@ -9,7 +9,6 @@ import axios from 'axios';
 
 
 function App() {
-
   // useState components에서 사용가능
   // App.js 에서 props로 내려주는것이 국룰
   // 왜냐 데이터는 항상 위에서 아래로 흘러야한다
