@@ -9,6 +9,7 @@ import axios from 'axios';
 
 
 function App() {
+  console.log("test")
 
   // useState components에서 사용가능
   // App.js 에서 props로 내려주는것이 국룰
