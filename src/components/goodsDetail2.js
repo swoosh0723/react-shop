@@ -170,6 +170,7 @@ function GoodsDetail(props) {
   }
 
 
+
   return (
     <>
       <DetialWrapper>
@@ -192,7 +193,6 @@ function GoodsDetail(props) {
       </DetialWrapper>
 
       <ButtonBox>
-
         <Button
           primary
           stockCount={stockCount}
