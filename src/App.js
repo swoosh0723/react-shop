@@ -11,8 +11,8 @@ import MainBanner from './components/mainBanner'
 import GoodsList from './components/goodsList'
 import Loading from './components/loading'
 import Cart from './components/cart'
-// import GoodsDetail2 from './components/goodsDetail2'
-const GoodsDetail2 = lazy(() => { return import('./components/goodsDetail2') })
+import GoodsDetail2 from './components/goodsDetail2'
+// const GoodsDetail2 = lazy(() => { return import('./components/goodsDetail2') })
 
 export const stockContext = React.createContext();
 

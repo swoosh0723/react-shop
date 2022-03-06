@@ -4,8 +4,6 @@ import Goods2 from './goods2'
 
 import { stockContext } from '../App';
 
-
-
 const List = styled.div`
   position: relative;
   display: grid;
@@ -67,8 +65,6 @@ function GoodsList(props) {
   const column = 'repeat(' + repeatCount + ', 1fr)';
 
   const test = useContext(stockContext);
-
-  console.log(test)
 
   function viewTypeToggle() {
     // 첫번째! 노가다
