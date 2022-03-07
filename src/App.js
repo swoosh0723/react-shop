@@ -25,7 +25,6 @@ function App() {
 
   const [stockText, stockTextChange] = useState([10, 11, 12])
 
-
   // 상품 더보기
   function moreGoods() {
     axios.get('./dataGoods2.json')

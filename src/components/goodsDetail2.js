@@ -126,11 +126,11 @@ function GoodsDetail(props) {
   const history = useHistory();
   const { id } = useParams();
 
-  const item = props.goods.find((goodsItem) => {
-    return goodsItem.id = id
+  const goodsItems = props.goods.find((goodsItem) => {
+    return goodsItem.id == id
   })
 
-  const [stockCount, stockCountChange] = useState(item.stock)
+  const [stockCount, stockCountChange] = useState(goodsItems.stock)
   const [orderText, orderTextChange] = useState('구매하기')
   const [tab, tabChange] = useState(0)
   const [tabButton, tabButtonChange] = useState([
@@ -159,7 +159,7 @@ function GoodsDetail(props) {
   }
 
   function addCart() {
-    props.dispatch({ type: 'addCart', data: { id: item.id, name: item.name, stock: item.stock } })
+    props.dispatch({ type: 'addCart', data: { id: goodsItems.id, name: goodsItems.name, stock: goodsItems.stock } })
 
     history.push('/cart')
   }
@@ -176,16 +176,16 @@ function GoodsDetail(props) {
       <DetialWrapper>
         <ThumbnailBox>
           <Thumbnail
-            src={item.image}
+            src={goodsItems.image}
           >
           </Thumbnail>
         </ThumbnailBox>
 
         <Information>
-          <Brand>{item.brand}</Brand>
-          <Name>{item.name}</Name>
-          <Price>{item.price}</Price>
-          <Rate>{item.rate}</Rate>
+          <Brand>{goodsItems.brand}</Brand>
+          <Name>{goodsItems.name}</Name>
+          <Price>{goodsItems.price}</Price>
+          <Rate>{goodsItems.rate}</Rate>
           <Stock stockCount={stockCount}>
             재고:&nbsp;<span>{stockCount}</span>
           </Stock>
@@ -202,7 +202,6 @@ function GoodsDetail(props) {
           {orderText}
         </Button>
         <Button
-          onClick={addCart}
         >
           장바구니
         </Button>
