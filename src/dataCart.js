@@ -1,4 +1,4 @@
-const goodsData = [
+const cartData = [
   {
     id: 0,
     image: "https://image.msscdn.net/images/goods_img/20200918/1611805/1611805_1_500.jpg",
@@ -22,4 +22,4 @@ const goodsData = [
   },
 ]
 
-export default goodsData
+export default cartData
